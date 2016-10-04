@@ -1,0 +1,9 @@
+<h1>
+    Dashboard
+</h1>
+{{ user | json }}
+<ul>
+    <li *ngFor="let item of posts | async">
+        {{ item | json }}
+    </li>
+</ul>

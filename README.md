@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # HubHoncho
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.16.
@@ -29,3 +30,9 @@ Run `ng github-pages:deploy` to deploy to Github Pages.
 ## Further help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# Honcho2
+Honcho is as Honcho does v2
+
+This project was built on Angular 2 with their provided CLI. 
+>>>>>>> 70d72659fb46336d2569c387e6080f34441a0249

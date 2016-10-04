@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    SignoutComponent
+    SignoutComponent,
   ],
   imports: [
     BrowserModule,

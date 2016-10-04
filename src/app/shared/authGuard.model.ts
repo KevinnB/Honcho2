@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFire, FirebaseAuthState } from 'angularfire2';
 
 import { AuthenticationService } from './authentication.service';
+import { User } from './user.model';
 
 
 @Injectable()
@@ -14,7 +15,7 @@ export class AuthGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this._auth.getUser()
       .take(1)
-      .map((authState: FirebaseAuthState) => !!authState)
+      .map((authState: User) => !!authState)
       .do(authenticated => {
         if (!authenticated) this._router.navigate(['login']);
       });

@@ -8,24 +8,30 @@ import { AngularFire, AuthMethods, AuthProviders, FirebaseAuthState } from 'angu
 
 @Injectable()
 export class AuthenticationService {
-  private authUser: FirebaseAuthState = null;
+  private authUser: User = null;
 
   constructor(
     public _af: AngularFire,
     private _router: Router) {
 
-    _af.auth.subscribe((user: FirebaseAuthState) => {
-      this.setUser(user);
+    _af.auth.subscribe((state: FirebaseAuthState) => {
+      this.setUser(state);
     });
   }
 
-  setUser(user: FirebaseAuthState) { this.authUser = user; }
+  setUser(state: FirebaseAuthState) {
+    return this.authUser = new User(state.auth.uid, state.auth.email, state.auth.emailVerified, state.auth.isAnonymous, state.auth.providerData);
+  }
 
-  getUser(): Observable<FirebaseAuthState> {
-    return this._af.auth
-      .map((user: FirebaseAuthState) => {
-          return user;
-      });
+  getUser(): Observable<User> {
+    if (this.authUser) {
+      return Observable.of(this.authUser);
+    } else {
+      return this._af.auth
+        .map((state: FirebaseAuthState) => {
+          return this.setUser(state);
+        });
+    }
   }
 
   signIn(provider: number): firebase.Promise<FirebaseAuthState> {

@@ -12,15 +12,15 @@ import { AuthenticationService } from './shared/authentication.service';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { SignoutComponent } from './signout/signout.component';
 import { AppComponent } from './app.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    SignoutComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

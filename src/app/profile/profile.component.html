@@ -1,0 +1,29 @@
+<h1>{{ profileUser.displayName }}</h1>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="text-xs-center">
+                <img [src]="profileUser.photoURL" [alt]="profileUser.displayName" class="card-img-top">
+            </div>
+            <div class="card-block">
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><strong>Email</strong></label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static pull-xs-right" *ngIf="profileUser.emailVerified"><i class="fa fa-star text-warning"></i></p>
+                        <p class="form-control-static">{{ profileUser.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div *ngIf="profileUser.platforms.length<3" class="alert alert-info">
+            You have no attached all of your social accounts yet! Honcho is the most useful when you can search across all supported platforms at once!
+        </div>
+        <h2>Attached Accounts</h2>
+        <ul *ngFor="let social of profileUser.platforms">
+            {{social}}
+        </ul>
+    </div>
+</div>

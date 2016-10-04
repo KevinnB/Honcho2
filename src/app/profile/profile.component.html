@@ -22,8 +22,28 @@
             You have no attached all of your social accounts yet! Honcho is the most useful when you can search across all supported platforms at once!
         </div>
         <h2>Attached Accounts</h2>
-        <ul *ngFor="let social of profileUser.platforms">
-            {{social}}
-        </ul>
+        <br>
+        <button type="button" (click)="providerSignin(3)" class="card btn-block" [class.card-success]="profileUser.platforms.indexOf('google.com')>-1" [class.card-inverse]="profileUser.platforms.indexOf('google.com')>-1">
+            <div class="card-block">
+                <h4 class="card-title">Google</h4>
+                <p class="card-text">Attach your Google account for all Google+ posts.</p>
+            </div>
+        </button>
+        <br>
+        <button type="button" (click)="providerSignin(2)" class="card btn-block" [class.card-success]="profileUser.platforms.indexOf('facebook.com')>-1" [class.card-inverse]="profileUser.platforms.indexOf('facebook.com')>-1">
+            <div class="card-block">
+                <h4 class="card-title">Facebook</h4>
+                <p class="card-text">Attach your Facebook account for all Facebook posts.</p>
+            </div>
+        </button>
+        <br>
+        <button type="button" (click)="providerSignin(1)" class="card btn-block" [class.card-success]="profileUser.platforms.indexOf('twitter.com')>-1" [class.card-inverse]="profileUser.platforms.indexOf('twitter.com')>-1">
+            <div class="card-block">
+                <h4 class="card-title">Twitter</h4>
+                <p class="card-text">Attach your Twitter account for all Twitter posts.</p>
+            </div>
+        </button>
+        <br>
+        <p class="text-xs-center text-muted">More coming soon!</p>
     </div>
 </div>

@@ -18,6 +18,14 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  providerSignin(authId: number) {
+    console.log(authId);
+    this._auth.signIn(authId)
+      .then(user => {
+        console.log(user);
+      });;
+  }
+
   ngOnInit() {
   }
 

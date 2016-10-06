@@ -13,19 +13,22 @@ import { User } from '../shared/user.model';
 })
 export class LoginComponent implements OnInit {
   user: User;
+  authMethods = [];
 
-  constructor(private _auth: AuthenticationService, private _router: Router) { }
+  constructor(private _auth: AuthenticationService, private _router: Router) {
+    this.authMethods = _auth.getProviders();
+  }
 
   ngOnInit() {
-    console.log(this._auth, this._auth.getUser());
   }
 
   signIn(user: User) {
     //this.auth.login(user);
   }
 
-  providerSignin(authId: number) {
-    console.log(authId);
+  providerSignin(provider: any) {
+    let authId: number = this._auth.getProviderID(provider.providerId);
+    console.log(provider, authId);
     this._auth.signIn(authId)
       .then(user => {
         console.log(user);

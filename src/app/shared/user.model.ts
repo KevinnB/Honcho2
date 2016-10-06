@@ -1,4 +1,16 @@
+class Platform {
+    uid: string;
+    photoURL: string;
+    providerId: string;
+    displayName: string;
 
+    constructor(id: string, photo: string, provId: string, name: string) {
+        this.uid = id;
+        this.photoURL = photo;
+        this.providerId = provId;
+        this.displayName = name;
+    }
+}
 
 export class User {
     uid: string;
@@ -21,7 +33,10 @@ export class User {
             var missing = 2;
             for (var i = 0; i < providers.length; i++) {
 
-                this.platforms.push(providers[i].providerId);
+                this.platforms.push(new Platform(providers[i].uid, 
+                                                providers[i].photoURL, 
+                                                providers[i].providerId, 
+                                                providers[i].displayName));
 
                 // extra data
                 if (missing > 0) {

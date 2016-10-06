@@ -84,7 +84,6 @@ export class AuthenticationService {
       .then(state => {
         if (state) {
           console.log("Unlinked", provider, state, this.authUser);
-        this.getUser().
           return true;
         } else {
           return false;
